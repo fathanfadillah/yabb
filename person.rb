@@ -9,27 +9,42 @@ class Person
       @attack_damage = attack_damage #atribut
     end
 
+    # def attack(other_person)
+    #     if other_person.name == "Jin"
+    #         if rand() <= 0.8 #rand() nilainya (0-1), kalo kurang dari sama dengan 0.8 maka ketangkis
+    #             puts "#{@name} attacks #{other_person.name} with #{@attack_damage} damage"
+    #                   # namenya si person bukan other person
+    #             puts "#{other_person.name} menangkis serangan #{@name}"
+    #         else #kalo hasilnya lebih dari 0.8 maka tidak ketangkis
+    #             other_person.take_damage(@attack_damage)            
+    #             puts "#{@name} attacks #{other_person.name} with #{@attack_damage} damage"
+    #         end
+    #     else #nah ini berarti jin yang serang khotun, khotun kan gabisa nangkis
+    #         other_person.take_damage(@attack_damage) #parameternya attack_damage si person bukan other person
+    #                      #method take_damage yang dibawah
+    #         puts "#{@name} attacks #{other_person.name} with #{@attack_damage} damage"
+    #     end
+    # end 
     def attack(other_person)
-        if other_person.name == "Jin"
-            if rand() <= 0.8 #rand() nilainya (0-1), kalo kurang dari sama dengan 0.8 maka ketangkis
-                puts "#{@name} attacks #{other_person.name} with #{@attack_damage} damage"
-                      # namenya si person bukan other person
-                puts "#{other_person.name} menangkis serangan #{@name}"
-            else #kalo hasilnya lebih dari 0.8 maka tidak ketangkis
-                other_person.take_damage(@attack_damage)            
-                puts "#{@name} attacks #{other_person.name} with #{@attack_damage} damage"
-            end
-        else #nah ini berarti jin yang serang khotun, khotun kan gabisa nangkis
-            other_person.take_damage(@attack_damage) #parameternya attack_damage si person bukan other person
-                         #method take_damage yang dibawah
-            puts "#{@name} attacks #{other_person.name} with #{@attack_damage} damage"
-        end
+        other_person.take_damage(@attack_damage)
+        puts "#{@name} attacks #{other_person.name} with #{@attack_damage} damage"
+        other_person.defend(@attack_damage)
     end 
 
     def take_damage(damage) #kena damage
                    #parameter attack damage si person
         @hitpoint -= damage #hp nya si other person, karena dipanggil dgn other_person.take_damage
     end
+
+    def defend(damage)
+        defend = rand()
+        if defend <= 0.8 
+            @hitpoint += damage
+            puts "#{@name} is successed to defend"
+        else 
+            puts "#{@name} is failed to defend"
+        end 
+    end 
 
     def to_s #to string, akan muncul kalo pake puts
         "#{@name} has #{@hitpoint} hitpoint and #{@attack_damage} attack damage"
