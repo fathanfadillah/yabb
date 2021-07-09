@@ -11,7 +11,8 @@ allies = [yuna,sensei,jin]
 mongol_archer = MongolArcher.new("Mongol Archerman",80,40)
 mongol_spearman = MongolSpearman.new("Mongol Spearman",120,60)
 mongol_swordsman = MongolSwordsman.new("Mongol Swordsman",100,50)
-enemies = [mongol_archer, mongol_spearman, mongol_swordsman]
+mongol_cavalryman = MongolCavalryman.new("Mongol Cavalryman",140,70)
+enemies = [mongol_archer, mongol_spearman, mongol_swordsman,mongol_cavalryman]
 
 i = 1
 until (jin.die? || enemies.empty?) do 
@@ -32,8 +33,8 @@ until (jin.die? || enemies.empty?) do
     puts "\n"
     puts "As #{jin.name}, what do you want to do this turn ?"
     puts "1. Attack an enemy"
-    if allies[0].name != "Jin"
-        puts "2. Heal an ally"
+    if allies[0].name != "Jin" #preventing print menu 2nd  
+        puts "2. Heal an ally"  
     end 
     menu = gets.chomp.to_i
     puts "\n"
@@ -43,7 +44,7 @@ until (jin.die? || enemies.empty?) do
         enemies.each.with_index(1) do |enemy,index|
             puts "#{index}. #{enemy.name}"
         end 
-        enemies_character = gets.chomp.to_i
+        enemies_character = gets.chomp.to_i #input integer
         
         enemy = enemies[enemies_character-1]
         jin.attack(enemy)
@@ -52,17 +53,18 @@ until (jin.die? || enemies.empty?) do
     end 
 
     if menu == 2
-        allies.delete(jin)
+        allies.delete(jin) #delete jin from allies[], jin cannot heal himself
         puts "Which ally you want to heal"
         
         allies.each.with_index(1) do |ally,index|
-            puts "#{index}. #{ally.name}"
+                            # starts from 1
+            puts "#{index}. #{ally.name}" #print allies
         end 
 
-        allies_character = gets.chomp.to_i
+        allies_character = gets.chomp.to_i #input integer
         
 
-        ally = allies[allies_character-1]
+        ally = allies[allies_character-1]  #array starts from 0
         jin.heal(ally)
         
         puts "\n"
@@ -72,22 +74,21 @@ until (jin.die? || enemies.empty?) do
     if enemies.empty?
         puts "Jin wins"        
     else
-        allies.delete(jin)      
+        allies.delete(jin) #delete jin from allies[], jin's turn is done    
         allies.each do |ally|
-            enemy = enemies[rand(enemies.size)]
-            ally.attack(enemy)
-            enemies.delete(enemy) if enemy.die? || enemy.flee?
+            enemy = enemies[rand(enemies.size)] #random enemy
+            ally.attack(enemy) #ally attack enemy
+            enemies.delete(enemy) if enemy.die? || enemy.flee? #remove enemy if die or flee
             break if enemies.empty?
             puts "\n"
         end
         allies.push(jin)
-        
 
         enemies.each do |enemy|
-            ally = allies[rand(allies.size)]
+            ally = allies[rand(allies.size)] #random allies
             enemy.attack(ally)
-            if ally.name != "Jin"
-                allies.delete(ally) if ally.die? || ally.flee?
+            if ally.name != "Jin" #preventing to remove jin
+                allies.delete(ally) if ally.die? || ally.flee? #remove ally if die or flee
             end
             puts "\n" 
         end

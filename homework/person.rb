@@ -15,7 +15,7 @@ class Person
     end 
 
     def take_damage(damage)
-        random = rand()
+        random = rand() #get random value
         if random * 100 <= @deflect
             puts "#{@name} deflect the attacks"
         else
