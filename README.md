@@ -60,6 +60,6 @@ left join users on users.id = orders.user_id <br/>
 left join order_details on order_details.order_id = orders.id <br/> 
 left join item_categories on item_categories.item_id = order_details.item_id //I use item_categories, beacuse if owner want best seller category, we can show it without change <br/> 
                                                                              //the table's structure and item_cateogries is a pivot table <br/>
-left join items on items.id = item_categories.item_id <br/>                          
+left join items on items.id = item_categories.item_id                          
 group by orders.id //grouping based on id in table order and in order not to make duplication record <br/>
 order by 1; //sorting the record <br/>
