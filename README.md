@@ -10,6 +10,7 @@ file :
 * homework.txt is file for coding
 * pos.sql is code file for making db
 * result.png is a result based on hasil.png
+* erd.png is a file contains entity relational diagram
 
 ##table : <br/>
 items : <br/>
