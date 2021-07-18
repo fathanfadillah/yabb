@@ -1,0 +1,42 @@
+no1
+Select items.id, items.name, items.price, categories.name
+from item_categories
+left join items on items.id = item_categories.items_id 
+left join categories on categories.id = item_categories.categories_id
+
+no2
+Select items.id, items.name, items.price, categories.name as 'category name'
+from item_categories
+left join items on items.id = item_categories.items_id 
+left join categories on categories.id = item_categories.categories_id
+where categories.name = 'main dish';
+
+no3
+Select items.id, items.name, items.price, categories.name
+from item_categories
+left join items on items.id = item_categories.items_id 
+left join categories on categories.id = item_categories.categories_id
+where categories.name = 'main dish' and 
+items.price > 30000
+
+nomor 4
+Select items.id, items.name
+from items
+left join item_categories on items.id = item_categories.items_id
+where categories_id is null;
+
+no5
+Select categories.id as '', categories.name as '', group_concat(items.name) as '', max(items.price)as ''
+from item_categories
+left join items on items.id = item_categories.items_id 
+left join categories on categories.id = item_categories.categories_id
+group by categories.id
+order by 1
+
+
+Select categories.id as '', categories.name as '', (select name from items) as 'name', max(items.price)as ''
+from item_categories
+left join items on items.id = item_categories.items_id 
+left join categories on categories.id = item_categories.categories_id
+group by categories.id
+order by 1
