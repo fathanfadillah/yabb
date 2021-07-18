@@ -1,4 +1,4 @@
-# day 2
+# day 2 : 7-5-2021
 
 ## exercise
 case :
