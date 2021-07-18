@@ -11,15 +11,15 @@ file :
 * pos.sql is code file for making db
 * result.png is a result based on hasil.png
 
-##table :
-items :
-+-------+-------------+------+-----+---------+-------+
-| Field | Type        | Null | Key | Default | Extra |
-+-------+-------------+------+-----+---------+-------+
-| id    | int(11)     | NO   | PRI | NULL    |       |
-| name  | varchar(50) | YES  |     | NULL    |       |
-| price | int(11)     | YES  |     | NULL    |       |
-+-------+-------------+------+-----+---------+-------+
+##table : <br/>
+items : <br/>
++-------+-------------+------+-----+---------+-------+ <br/>
+| Field | Type        | Null | Key | Default | Extra | <br/>
++-------+-------------+------+-----+---------+-------+ <br/>
+| id    | int(11)     | NO   | PRI | NULL    |       | <br/>
+| name  | varchar(50) | YES  |     | NULL    |       | <br/>
+| price | int(11)     | YES  |     | NULL    |       | <br/>
++-------+-------------+------+-----+---------+-------+ <br/>
 
 categories :
 +-------+-------------+------+-----+---------+-------+
