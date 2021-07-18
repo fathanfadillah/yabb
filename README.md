@@ -1,6 +1,6 @@
 # day 6 : 7-16-2021
 
-## homework
+## homework in /PR file
 case :
 * homework.png
 * hasil.png
