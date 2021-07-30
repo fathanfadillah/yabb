@@ -1,0 +1,15 @@
+Model : item, order, order_ditel, users
+	Item: id,name,price
+	Order: id,users,total,order_date
+	order_ditel: id,order_id,item_id,price,qty
+	users: id,nama
+
+Controller : index, new, create
+	View : index, new
+	Index : all_item
+	New : buy_item
+	Buy_item: name, price, qty, tambah_item(), hapus_item()
+
+Asumsi: 
+	gabisa liat item kalo lagi create, 
+	kalo uda order gabisa diganti
