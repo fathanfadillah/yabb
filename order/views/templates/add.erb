@@ -1,0 +1,11 @@
+<% if status_add == "item" %>
+    <h3>item</h3>
+<% elsif status_add == "category" %>
+    <h3>kategori</h3>
+    <h2>create</h2>
+    <form action="create">
+        <label for="fname">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <input type="submit" value="Submit">
+    </form>
+<% end %>
