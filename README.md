@@ -9,3 +9,8 @@
 * day 4 tugas 7-12-2021
 * day 5 tugas 7-14-2021
 * day 6 tugas 7-16-2021
+* day 7 tugas 7-19-2021
+* day 8 tugas 7-21-2021
+* day 10 tugas 7-26-2021
+* day 11 tugas 7-28-2021
+* day 12 tugas 7-30-2021
