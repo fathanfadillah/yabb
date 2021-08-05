@@ -2,7 +2,7 @@
 In ruby, we're using rspec for testing and coverage using simplecov
 
 
-## Homework(Incremet) : increment.rb and increment_spec.rb
+## Homework(Increment) : increment.rb and increment_spec.rb
 ### Requirement :
 * input : [5,6,1] -> output : [5,6,2]
 * input : [3,9] -> output : [4,0]
