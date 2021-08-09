@@ -1,0 +1,23 @@
+<a href="/">kembali</a>
+<h2>edit</h2>
+<% items.each do |item|%>
+    <form action="/update/<%= item["id"] %>" method="POST">
+        <label for="fname">name</label><br>
+        <input type="text" id="name" name="name" value="<%= item["name"]%>"><br>
+        <label for="lname">price</label><br>
+        <input type="number" id="price" name="price" value="<%= item["price"]%>"><br>
+        <label for="lname">category</label><br>
+        <select name="category">
+            <% categories.each do |category|%>
+                <option value="<%= category["id"]%>"
+                    <%if category["name"] == item["category"] %>
+                            selected
+                    <% end %> 
+                > 
+                    <%= category["name"] %>
+                </option>
+            <% end %>
+        </select>
+        <input type="submit" value="Submit">
+    </form> 
+<% end %>

@@ -1,0 +1,18 @@
+<h2>Item</h2>
+<table>
+    <tbody>
+    <% i=1 %>
+        <% items.each do |item| %>
+            <tr>
+                <td><%= i %></td>
+                <td><%= item["name"] %></td>
+                <td><%= item["price"] %></td>
+                <td><a href="/items/show/<%= item["id"] %>">show</a></td>
+                <td><a href="/items/edit/<%= item["id"] %>">edit</a>
+                <td><a href="/items/delete/<%= item["id"] %>">delete</td>
+            </tr>
+            <% i+=1 %>
+        <% end %>
+    </tbody>
+</table>
+<a href="/items/new">New Item</a>
